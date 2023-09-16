@@ -11,9 +11,9 @@ export type StoreType = {
 export type NewsType = {
   id: number;
   titulo: string;
-  intruducao: string;
+  introducao: string;
   data_publicacao: string;
-  imagens: [];
+  imagens: string;
   link: string;
 };
 

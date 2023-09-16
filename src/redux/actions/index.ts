@@ -9,13 +9,13 @@ export const getNews = (payload: NewsType[]) => ({
 });
 
 export const fetchNews = () => {
-  try {
-    return async (dispatch: Dispatch) => {
+  return async (dispatch: Dispatch) => {
+    try {
       const response = await fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
       const data = await response.json();
       dispatch(getNews(data.items));
-    };
-  } catch (error) {
-    console.log(error);
-  }
-}
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
