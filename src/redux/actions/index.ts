@@ -1,12 +1,21 @@
-export const GET_NEWS = 'GET_NEWS';
-export const GET_FIRST_NEWS = 'GET_FIRST_NEWS';
+import { Dispatch } from "redux";
+import { NewsType } from "../../types";
 
-export const getNews = (payload: any) => ({
+export const GET_NEWS = 'GET_NEWS';
+
+export const getNews = (payload: NewsType[]) => ({
   type: GET_NEWS,
   payload,
 });
 
-export const getFirstNews = (payload: any) => ({
-  type: GET_FIRST_NEWS,
-  payload,
-});
+export const fetchNews = () => {
+  try {
+    return async (dispatch: Dispatch) => {
+      const response = await fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
+      const data = await response.json();
+      dispatch(getNews(data.items));
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
