@@ -21,8 +21,13 @@ function Home() {
         <CardLastNews lastNews={firstNews} />
       </div>
       <div>
-        <CardNews />
+        {newsArray.map((news) =>
+          <div key={news.id}>
+            <CardNews news={news} />
+          </div>
+        )}
       </div>
+      <button>Carregar mais...</button>
     </>
 
   );

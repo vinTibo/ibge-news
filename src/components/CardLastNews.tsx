@@ -5,7 +5,7 @@ type CardLastNewsProps = {
 };
 
 function CardLastNews({ lastNews }: CardLastNewsProps) {
-  const { id, titulo, introducao, data_publicacao, imagens, link } = lastNews;
+  const { titulo, introducao, data_publicacao, imagens, link } = lastNews;
   const date = new Date();
   const currentDate = new Date(`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`);
   const publicationDate = data_publicacao.split(" ")[0].split("/");
@@ -25,7 +25,6 @@ function CardLastNews({ lastNews }: CardLastNewsProps) {
         <button>Saiba mais</button>
       </a>
     </div>
-
   );
 }
 
