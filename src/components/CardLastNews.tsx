@@ -1,11 +1,12 @@
 import { NewsType } from "../types";
+import FavoriteButton from "./FavoriteButton";
 
 type CardLastNewsProps = {
   lastNews: NewsType;
 };
 
 function CardLastNews({ lastNews }: CardLastNewsProps) {
-  const { titulo, introducao, data_publicacao, imagens, link } = lastNews;
+  const { id, titulo, introducao, data_publicacao, imagens, link } = lastNews;
   const date = new Date();
   const currentDate = new Date(`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`);
   const publicationDate = data_publicacao.split(" ")[0].split("/");
@@ -23,6 +24,7 @@ function CardLastNews({ lastNews }: CardLastNewsProps) {
       <a href={link}>
         <button>Saiba mais</button>
       </a>
+      <FavoriteButton id={id} />
     </div>
   );
 }

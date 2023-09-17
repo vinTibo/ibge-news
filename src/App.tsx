@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, StoreType } from './types';
 import { useEffect } from 'react';
 import { getStorageFavoriteNews } from './redux/actions';
+import Release from './pages/Release';
+import News from './pages/News';
+import Favorite from './pages/Favorite';
 
 function App() {
   const { favoriteNews } = useSelector((state: StoreType) => state.news);
@@ -26,7 +29,9 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/news/:id" element={<h1>Page not found</h1>} />
+        <Route path="/release" element={<Release />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/favorite" element={<Favorite />} />
       </Route>
     </Routes>
   )

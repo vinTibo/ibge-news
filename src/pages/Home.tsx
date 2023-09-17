@@ -3,7 +3,8 @@ import CardLastNews from "../components/CardLastNews";
 import CardNews from "../components/CardNews";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
-import { Dispatch, NewsType, StoreType } from "../types";
+import { Dispatch, StoreType } from "../types";
+import NavBar from "../components/NavBar";
 
 function Home() {
   const dispatch: Dispatch = useDispatch()
@@ -26,6 +27,7 @@ function Home() {
       <div>
         <CardLastNews lastNews={firstNews} />
       </div>
+      <NavBar />
       <div>
         {newsArray.slice(0, numberOfNews).map((news) =>
           <div key={news.id}>
