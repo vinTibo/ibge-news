@@ -37,7 +37,6 @@ function Home() {
       </div>
       <button onClick={handleShowNews}>Carregar mais...</button>
     </>
-
   );
 }
 
