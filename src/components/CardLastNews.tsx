@@ -12,7 +12,6 @@ function CardLastNews({ lastNews }: CardLastNewsProps) {
   const test = new Date(`${publicationDate[1]}/${publicationDate[0]}/${publicationDate[2]}`);
   const resultDate = (currentDate.getTime() - test.getTime()) / (1000 * 3600 * 24);
   const image = JSON.parse(imagens);
-  console.log(image);
 
   return (
     <div>
