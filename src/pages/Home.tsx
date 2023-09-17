@@ -1,33 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CardLastNews from "../components/CardLastNews";
 import CardNews from "../components/CardNews";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
-import { Dispatch, StoreType } from "../types";
+import { Dispatch, NewsType, StoreType } from "../types";
 
 function Home() {
   const dispatch: Dispatch = useDispatch()
   const { newsArray, firstNews } = useSelector((state: StoreType) => state.news);
+  const [numberOfNews, setNumberOfNews] = useState(9);
+
   useEffect(() => {
     dispatch(fetchNews());
-    console.log(newsArray);
   }, []);
   if (newsArray.length < 1) {
     return <h1>Carregando...</h1>;
   }
+
+  const handleShowNews = () => {
+    setNumberOfNews(numberOfNews + 3);
+  };
+
   return (
     <>
       <div>
         <CardLastNews lastNews={firstNews} />
       </div>
       <div>
-        {newsArray.map((news) =>
+        {newsArray.slice(0, numberOfNews).map((news) =>
           <div key={news.id}>
             <CardNews news={news} />
           </div>
         )}
       </div>
-      <button>Carregar mais...</button>
+      <button onClick={handleShowNews}>Carregar mais...</button>
     </>
 
   );
