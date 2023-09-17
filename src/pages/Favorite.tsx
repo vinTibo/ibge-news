@@ -36,7 +36,7 @@ function Favorite() {
           </div>
         )}
       </div>
-      <button onClick={handleShowNews}>Carregar mais...</button>
+      {favoriteNews.length > 9 && <button onClick={handleShowNews}>Carregar mais...</button>}
     </>
   );
 }
