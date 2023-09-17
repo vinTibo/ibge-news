@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch, StoreType } from "../types";
+import { addFavoriteNews, removeFavoriteNews } from "../redux/actions";
 
 type FavoriteButtonProps = {
   id: number;
 };
 
 function FavoriteButton({ id }: FavoriteButtonProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const handleFavorite = () => setIsFavorite(!isFavorite);
+  const { favoriteNews } = useSelector((state: StoreType) => state.news);
+  const dispatch: Dispatch = useDispatch();
+
+
+
+  const handleFavorite = () => {
+    if (favoriteNews.includes(id)) {
+      dispatch(removeFavoriteNews(id));
+    } else {
+      dispatch(addFavoriteNews(id));
+    }
+    console.log(favoriteNews);
+  };
   return (
     <button onClick={handleFavorite}>
-      {isFavorite ? "Remove from favorites" : "Add to favorites"}
+      {favoriteNews.includes(id) ? "Remove from favorites" : "Add to favorites"}
     </button>
   );
 }

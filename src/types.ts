@@ -5,6 +5,7 @@ export type StoreType = {
   news: {
     firstNews: NewsType;
     newsArray: NewsType[];
+    favoriteNews: number[];
   }
 };
 
