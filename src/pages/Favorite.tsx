@@ -15,9 +15,9 @@ function Favorite() {
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
-  if (newsArray.length < 1) {
-    return <h1>Carregando...</h1>;
-  }
+  // if (newsArray.length < 1) {
+  //   return <h1>Carregando...</h1>;
+  // }
 
   const handleShowNews = () => {
     setNumberOfNews(numberOfNews + 3);
