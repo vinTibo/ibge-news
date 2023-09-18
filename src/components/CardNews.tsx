@@ -1,5 +1,9 @@
+import CardContent from "@mui/material/CardContent";
 import { NewsType } from "../types";
 import FavoriteButton from "./FavoriteButton";
+import Card from '@mui/material/Card';
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
 
 type CardNewsProps = {
   news: NewsType;
@@ -15,15 +19,19 @@ function CardNews({ news }: CardNewsProps) {
   const resultDate = (currentDate.getTime() - test.getTime()) / (1000 * 3600 * 24);
 
   return (
-    <div>
-      <h2>{titulo}</h2>
-      <p>{introducao}</p>
-      <p>{resultDate > 1 ? `${resultDate} dias atrás` : `${resultDate} dia atrás`}</p>
-      <a href={link}>
-        <button>Saiba mais</button>
-      </a>
-      <FavoriteButton id={id} />
-    </div>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">{titulo}</Typography>
+        <Typography variant="body2" color="text.secondary">{introducao}</Typography>
+        <p>{resultDate > 1 ? `${resultDate} dias atrás` : `${resultDate} dia atrás`}</p>
+      </CardContent>
+      <CardActions>
+        <a href={link}>
+          <button>Saiba mais</button>
+        </a>
+        <FavoriteButton id={id} />
+      </CardActions>
+    </Card>
   );
 }
 

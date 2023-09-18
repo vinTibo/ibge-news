@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch, StoreType } from "../types";
 import { addFavoriteNews, removeFavoriteNews } from "../redux/actions";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 type FavoriteButtonProps = {
   id: number;
@@ -20,7 +22,7 @@ function FavoriteButton({ id }: FavoriteButtonProps) {
 
   return (
     <button onClick={handleFavorite}>
-      {favoriteNews.includes(id) ? "Remove from favorites" : "Add to favorites"}
+      {favoriteNews.includes(id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
     </button>
   );
 }
