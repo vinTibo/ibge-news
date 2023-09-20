@@ -30,7 +30,7 @@ describe(('Home'), async () => {
     await userEvent.click(loadMoreButton);
 
     const favoriteButtonsNew = await screen.findAllByTestId('FavoriteBorderIcon');
-    const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Saiba mais/i });
+    const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
     expect(favoriteButtonsNew).toHaveLength(13);
     expect(knowMoreButtonsNew).toHaveLength(13);
 
@@ -50,7 +50,7 @@ describe(('Home'), async () => {
   it(('should render the full news'), async () => {
     renderWithRouterAndRedux(<App />);
 
-    const knowMoreButtons = await screen.findAllByRole('link', { name: /Saiba mais/i });
+    const knowMoreButtons = await screen.findAllByRole('link', { name: /Leia a notícia aqui/i });
 
     await userEvent.click(knowMoreButtons[0]);
   });

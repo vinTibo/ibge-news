@@ -33,7 +33,7 @@ describe('Release', async () => {
     renderWithRouterAndRedux(<App />, { initialEntries: ['/Release'] });
 
     const favoriteButtons = await screen.findAllByTestId('FavoriteBorderIcon');
-    const knowMoreButtons = await screen.findAllByRole('button', { name: /Saiba mais/i });
+    const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
     const loadMoreButton = await screen.findByRole('button', { name: /Carregar mais.../i });
     const navBar = await screen.findByRole('navigation');
 
@@ -45,7 +45,7 @@ describe('Release', async () => {
     await userEvent.click(loadMoreButton);
 
     const favoriteButtonsNew = await screen.findAllByTestId('FavoriteBorderIcon');
-    const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Saiba mais/i });
+    const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
     expect(favoriteButtonsNew).toHaveLength(8);
     expect(knowMoreButtonsNew).toHaveLength(8);
 

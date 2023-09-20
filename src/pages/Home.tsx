@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
 import { Dispatch, StoreType } from "../types";
 import NavBar from "../components/NavBar";
+import { Grid } from "@mui/material";
 
 function Home() {
   const dispatch: Dispatch = useDispatch()
@@ -28,13 +29,13 @@ function Home() {
         <CardLastNews lastNews={firstNews} />
       </div>
       <NavBar />
-      <div>
+      <Grid container spacing={3} style={{ marginTop: "30px" }}>
         {newsArray.slice(0, numberOfNews).map((news) =>
-          <div key={news.id}>
+          <Grid item xs={12} sm={4} md={4} key={news.id}>
             <CardNews news={news} />
-          </div>
+          </Grid>
         )}
-      </div>
+      </Grid>
       <button onClick={handleShowNews}>Carregar mais...</button>
     </>
   );

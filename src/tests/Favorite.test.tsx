@@ -35,7 +35,7 @@ describe('Favorite', async () => {
     const favoriteButtonsFull = await screen.findAllByTestId('FavoriteIcon');
     expect(favoriteButtonsFull).toHaveLength(5);
 
-    const knowMoreButtons = await screen.findAllByRole('button', { name: /Saiba mais/i });
+    const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
 
     expect(knowMoreButtons).toHaveLength(6);
     expect(loadMoreButton).not.toBeInTheDocument();

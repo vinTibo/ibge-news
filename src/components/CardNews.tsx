@@ -19,18 +19,24 @@ function CardNews({ news }: CardNewsProps) {
   const resultDate = (currentDate.getTime() - test.getTime()) / (1000 * 3600 * 24);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450, border: "1px solid #e0e0e0", minHeight: 400 }}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">{titulo}</Typography>
-        <Typography variant="body2" color="text.secondary">{introducao}</Typography>
-        <p>{resultDate > 1 ? `${resultDate} dias atrás` : `${resultDate} dia atrás`}</p>
+        <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: "left" }}>
+          {titulo}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ textAlign: "left" }}>
+          {introducao}
+        </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ display: "flex", justifyContent: "space-between", marginInline: "10px" }}>
+        <p>{resultDate > 1 ? `${resultDate} dias atrás` : `${resultDate} dia atrás`}</p>
         <a href={link}>
-          <button>Saiba mais</button>
+          <button style={{ backgroundColor: "#4ef542", color: "black" }}>
+            Leia a notícia aqui
+          </button>
         </a>
-        <FavoriteButton id={id} />
       </CardActions>
+      <FavoriteButton id={id} />
     </Card>
   );
 }
