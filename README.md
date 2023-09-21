@@ -15,7 +15,7 @@
 This project is a news website that uses the IBGE API to display the last news of the IBGE. The user can see the news by category, like the news and add to the favorites list.
 
 ### How to access the project
-* [Trybe News]()
+* [Trybe News](https://trybe-news-nine.vercel.app/)
 * [IBGE API](https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100)
 
 ### How to use the project
