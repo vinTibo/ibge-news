@@ -17,7 +17,7 @@ function Favorite() {
 
   useEffect(() => {
     dispatch(fetchNews());
-  }, []);
+  }, [favoriteArray]);
   if (newsArray.length < 1) {
     return <h1>Carregando...</h1>;
   }
@@ -29,16 +29,16 @@ function Favorite() {
   return (
     <>
       <div>
-        <CardLastNews lastNews={firstFavoriteArray} />
+        {allFavoriteArray.length > 0 && <CardLastNews lastNews={firstFavoriteArray} />}
       </div>
       <NavBar />
-      <Grid container spacing={3} style={{ marginTop: "30px" }}>
+      {allFavoriteArray.length > 0 && <Grid container spacing={3} style={{ marginTop: "30px" }}>
         {favoriteArray.slice(0, numberOfNews).map((news) =>
           <Grid item xs={12} sm={4} md={4} key={news.id}>
             <CardNews news={news} />
           </Grid>
         )}
-      </Grid>
+      </Grid>}
       {favoriteNews.length > numberOfNews &&
         <Button
           onClick={handleShowNews}

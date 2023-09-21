@@ -15,12 +15,10 @@ function App() {
   const FavoriteLocalStorage = JSON.parse(localStorage.getItem('favoriteNews') || '[]');
   const dispatch: Dispatch = useDispatch();
   useEffect(() => {
-    if (favoriteNews.length > 0) {
+    if (favoriteNews.length >= 0) {
       localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
-    } else {
-      if (FavoriteLocalStorage.length > 0 && favoriteNews.length < 1) {
-        dispatch(getStorageFavoriteNews(FavoriteLocalStorage));
-      }
+    } else if (FavoriteLocalStorage.length > 0 && favoriteNews.length < 1) {
+      dispatch(getStorageFavoriteNews(FavoriteLocalStorage));
     }
   }, [favoriteNews]);
 

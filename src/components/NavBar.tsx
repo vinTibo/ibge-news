@@ -15,7 +15,7 @@ function NavBar() {
             <Link to="/news" style={{ color: "black" }}>Notícias</Link>
             {favoriteNews.length > 0 ?
               <Link to="/favorite" style={{ color: "black" }}>Favoritas</Link> :
-              <Link to="/" style={{ color: "black" }}>Sem Favoritas</Link>}
+              <Link to="#" style={{ color: "black" }}>Sem Favorita</Link>}
           </Toolbar>
         </AppBar>
       </Box>
