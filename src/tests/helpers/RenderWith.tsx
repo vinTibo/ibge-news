@@ -1,11 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { applyMiddleware, legacy_createStore as createStore, Store } from 'redux';
 import { render } from '@testing-library/react';
 import thunk from 'redux-thunk';
 import rootReducer from '../../redux/reducers';
-import { userEvent } from '@testing-library/user-event';
 
 type Options = {
   initialEntries?: string[];
