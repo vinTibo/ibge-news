@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <img src={logo} alt="logo" className={styles.img} />
-      <div>
+      <div className={styles.div}>
         <h1 className={styles.title}>TRYBE NEWS</h1>
       </div>
     </header>

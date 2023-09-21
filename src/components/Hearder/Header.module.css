@@ -23,7 +23,7 @@ header {
   height: 100%;
 }
 
-header div {
+.div {
   display: flex;
   justify-content: center;
   width: 100%;
