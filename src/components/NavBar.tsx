@@ -1,4 +1,4 @@
-import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+import { Box, AppBar, Toolbar } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -6,19 +6,11 @@ function NavBar() {
     <>
       <Box sx={{ flexGrow: 1, marginTop: "50px" }}>
         <AppBar position="static" sx={{ backgroundColor: "white", height: "60px" }}>
-          <Toolbar sx={{ gap: "10px", }}>
-
+          <Toolbar sx={{ gap: "60px" }}>
             <Link to="/" style={{ color: "black" }}>Mais recentes</Link>
-
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/release" style={{ color: "black" }}>Release</Link>
-            </Typography>
-
+            <Link to="/release" style={{ color: "black" }}>Release</Link>
             <Link to="/news" style={{ color: "black" }}>Notícias</Link>
-
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/favorite" style={{ color: "black" }}>Favoritas</Link>
-            </Typography>
+            <Link to="/favorite" style={{ color: "black" }}>Favoritas</Link>
           </Toolbar>
         </AppBar>
       </Box>
