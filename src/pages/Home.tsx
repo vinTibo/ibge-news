@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
 import { Dispatch, StoreType } from "../types";
 import NavBar from "../components/NavBar";
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 function Home() {
   const dispatch: Dispatch = useDispatch()
-  const { newsArray, firstNews } = useSelector((state: StoreType) => state.news);
+  const { newsArray } = useSelector((state: StoreType) => state.news);
+  const firstHomeNews = newsArray[0];
+  const homeNews = newsArray.slice(1);
   const [numberOfNews, setNumberOfNews] = useState(9);
 
   useEffect(() => {
@@ -26,17 +28,25 @@ function Home() {
   return (
     <>
       <div>
-        <CardLastNews lastNews={firstNews} />
+        <CardLastNews lastNews={firstHomeNews} />
       </div>
       <NavBar />
       <Grid container spacing={3} style={{ marginTop: "30px" }}>
-        {newsArray.slice(0, numberOfNews).map((news) =>
+        {homeNews.slice(0, numberOfNews).map((news) =>
           <Grid item xs={12} sm={4} md={4} key={news.id}>
             <CardNews news={news} />
           </Grid>
         )}
       </Grid>
-      <button onClick={handleShowNews}>Carregar mais...</button>
+      {homeNews.length > numberOfNews &&
+        <Button
+          onClick={handleShowNews}
+          variant="outlined"
+          color="error"
+          sx={{ marginTop: '20px' }}
+        >
+          mais notícias
+        </Button>}
     </>
   );
 }

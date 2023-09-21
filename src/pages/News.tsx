@@ -5,11 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
 import { Dispatch, StoreType } from "../types";
 import NavBar from "../components/NavBar";
+import { Button, Grid } from "@mui/material";
 
 function News() {
   const dispatch: Dispatch = useDispatch()
-  const { newsArray, firstNews } = useSelector((state: StoreType) => state.news);
-  const newsFiltred = newsArray.filter((news) => news.tipo === 'Notícia');
+  const { newsArray } = useSelector((state: StoreType) => state.news);
+  const allNewsFiltred = newsArray.filter((news) => news.tipo === 'Notícia');
+  const firstNewsFiltred = allNewsFiltred[0];
+  const newsFiltred = allNewsFiltred.slice(1);
   const [numberOfNews, setNumberOfNews] = useState(9);
 
   useEffect(() => {
@@ -26,17 +29,25 @@ function News() {
   return (
     <>
       <div>
-        <CardLastNews lastNews={firstNews} />
+        <CardLastNews lastNews={firstNewsFiltred} />
       </div>
       <NavBar />
-      <div>
+      <Grid container spacing={3} style={{ marginTop: "30px" }}>
         {newsFiltred.slice(0, numberOfNews).map((news) =>
-          <div key={news.id}>
+          <Grid item xs={12} sm={4} md={4} key={news.id}>
             <CardNews news={news} />
-          </div>
+          </Grid>
         )}
-      </div>
-      <button onClick={handleShowNews}>Carregar mais...</button>
+      </Grid>
+      {newsFiltred.length > numberOfNews &&
+        <Button
+          onClick={handleShowNews}
+          variant="outlined"
+          color="error"
+          sx={{ marginTop: '20px' }}
+        >
+          mais notícias
+        </Button>}
     </>
   );
 }

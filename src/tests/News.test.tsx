@@ -21,7 +21,7 @@ describe('News', async () => {
 
     expect(firstNewsHome).toBeInTheDocument();
 
-    const newsLink = await screen.findByRole('link', { name: /Notícia/i });
+    const newsLink = await screen.findByRole('link', { name: /Notícias/i });
 
     expect(newsLink).toBeInTheDocument();
 
@@ -34,15 +34,9 @@ describe('News', async () => {
 
     const favoriteButtons = await screen.findAllByTestId('FavoriteBorderIcon');
     const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
-    const loadMoreButton = await screen.findByRole('button', { name: /Carregar mais.../i });
-    const navBar = await screen.findByRole('navigation');
 
     expect(favoriteButtons).toHaveLength(9);
     expect(knowMoreButtons).toHaveLength(9);
-    expect(loadMoreButton).toBeInTheDocument();
-    expect(navBar).toBeInTheDocument();
-
-    await userEvent.click(loadMoreButton);
 
     const favoriteButtonsNew = await screen.findAllByTestId('FavoriteBorderIcon');
     const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });

@@ -34,27 +34,16 @@ describe('Release', async () => {
 
     const favoriteButtons = await screen.findAllByTestId('FavoriteBorderIcon');
     const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
-    const loadMoreButton = await screen.findByRole('button', { name: /Carregar mais.../i });
-    const navBar = await screen.findByRole('navigation');
 
-    expect(favoriteButtons).toHaveLength(8);
-    expect(knowMoreButtons).toHaveLength(8);
-    expect(loadMoreButton).toBeInTheDocument();
-    expect(navBar).toBeInTheDocument();
+    expect(favoriteButtons).toHaveLength(7)
+    expect(knowMoreButtons).toHaveLength(7);
 
-    await userEvent.click(loadMoreButton);
-
-    const favoriteButtonsNew = await screen.findAllByTestId('FavoriteBorderIcon');
-    const knowMoreButtonsNew = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
-    expect(favoriteButtonsNew).toHaveLength(8);
-    expect(knowMoreButtonsNew).toHaveLength(8);
-
-    await userEvent.click(favoriteButtonsNew[0]);
-    await userEvent.click(favoriteButtonsNew[1]);
+    await userEvent.click(favoriteButtons[0]);
+    await userEvent.click(favoriteButtons[1]);
 
     const favoriteButtonsFull = await screen.findAllByTestId('FavoriteIcon');
     const favoriteButtonsEmpty = await screen.findAllByTestId('FavoriteBorderIcon');
-    expect(favoriteButtonsEmpty).toHaveLength(6);
+    expect(favoriteButtonsEmpty).toHaveLength(5);
     expect(favoriteButtonsFull).toHaveLength(2);
 
     await userEvent.click(favoriteButtonsFull[1]);

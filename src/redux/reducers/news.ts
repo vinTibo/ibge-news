@@ -1,11 +1,8 @@
 import { ADD_FAVORITE_NEWS, GET_NEWS, GET_STORAGE_FAVORITE_NEWS, REMOVE_FAVORITE_NEWS } from "../actions";
 
 const INITIAL_STATE = {
-  firstNews: {},
   newsArray: [],
   favoriteNews: [],
-  loading: false,
-  error: null,
 };
 
 type ActionType = {
@@ -18,9 +15,7 @@ function newsReducer(state = INITIAL_STATE, action: ActionType) {
     case GET_NEWS:
       return {
         ...state,
-        loading: true,
-        firstNews: action.payload[0],
-        newsArray: action.payload.slice(1),
+        newsArray: action.payload,
       };
     case ADD_FAVORITE_NEWS:
       return {

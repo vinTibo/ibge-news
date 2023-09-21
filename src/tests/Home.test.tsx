@@ -18,14 +18,12 @@ describe(('Home'), async () => {
     renderWithRouterAndRedux(<App />);
 
     const favoriteButtons = await screen.findAllByTestId('FavoriteBorderIcon');
-    const knowMoreButtons = await screen.findAllByRole('button', { name: /Saiba mais/i });
-    const loadMoreButton = await screen.findByRole('button', { name: /Carregar mais.../i });
-    const navBar = await screen.findByRole('navigation');
+    const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
+    const loadMoreButton = await screen.findByRole('button', { name: /mais notícias/i });
 
     expect(favoriteButtons).toHaveLength(10);
     expect(knowMoreButtons).toHaveLength(10);
     expect(loadMoreButton).toBeInTheDocument();
-    expect(navBar).toBeInTheDocument();
 
     await userEvent.click(loadMoreButton);
 

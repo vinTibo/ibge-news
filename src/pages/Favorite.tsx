@@ -5,11 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
 import { Dispatch, StoreType } from "../types";
 import NavBar from "../components/NavBar";
+import { Button, Grid } from "@mui/material";
 
 function Favorite() {
   const dispatch: Dispatch = useDispatch()
-  const { newsArray, favoriteNews, firstNews } = useSelector((state: StoreType) => state.news);
-  const FavoriteArray = newsArray.filter((news) => favoriteNews.includes(news.id));
+  const { newsArray, favoriteNews } = useSelector((state: StoreType) => state.news);
+  const allFavoriteArray = newsArray.filter((news) => favoriteNews.includes(news.id));
+  const firstFavoriteArray = allFavoriteArray[0];
+  const favoriteArray = allFavoriteArray.slice(1);
   const [numberOfNews, setNumberOfNews] = useState(9);
 
   useEffect(() => {
@@ -26,17 +29,25 @@ function Favorite() {
   return (
     <>
       <div>
-        <CardLastNews lastNews={firstNews} />
+        <CardLastNews lastNews={firstFavoriteArray} />
       </div>
       <NavBar />
-      <div>
-        {FavoriteArray.slice(0, numberOfNews).map((news) =>
-          <div key={news.id}>
+      <Grid container spacing={3} style={{ marginTop: "30px" }}>
+        {favoriteArray.slice(0, numberOfNews).map((news) =>
+          <Grid item xs={12} sm={4} md={4} key={news.id}>
             <CardNews news={news} />
-          </div>
+          </Grid>
         )}
-      </div>
-      {favoriteNews.length > numberOfNews && <button onClick={handleShowNews}>Carregar mais...</button>}
+      </Grid>
+      {favoriteNews.length > numberOfNews &&
+        <Button
+          onClick={handleShowNews}
+          variant="outlined"
+          color="error"
+          sx={{ marginTop: '20px' }}
+        >
+          mais notícias
+        </Button>}
     </>
   );
 }

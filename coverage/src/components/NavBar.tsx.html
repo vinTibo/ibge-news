@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -76,29 +76,74 @@
 <a name='L11'></a><a href='#L11'>11</a>
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Link } from "react-router-dom";
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 &nbsp;
 function NavBar() {
   return (
-    &lt;nav&gt;
-      &lt;Link to="/"&gt;Mais recentes&lt;/Link&gt;
-      &lt;Link to="/release"&gt;Release&lt;/Link&gt;
-      &lt;Link to="/news"&gt;Notícia&lt;/Link&gt;
-      &lt;Link to="/favorite"&gt;Favoritas&lt;/Link&gt;
-    &lt;/nav&gt;
+    &lt;&gt;
+      &lt;Box sx={{ flexGrow: 1, marginTop: "50px" }}&gt;
+        &lt;AppBar position="static" sx={{ backgroundColor: "white", height: "60px" }}&gt;
+          &lt;Toolbar sx={{ gap: "10px", }}&gt;
+&nbsp;
+            &lt;Link to="/" style={{ color: "black" }}&gt;Mais recentes&lt;/Link&gt;
+&nbsp;
+            &lt;Typography variant="h6" component="div" sx={{ flexGrow: 1 }}&gt;
+              &lt;Link to="/release" style={{ color: "black" }}&gt;Release&lt;/Link&gt;
+            &lt;/Typography&gt;
+&nbsp;
+            &lt;Link to="/news" style={{ color: "black" }}&gt;Notícias&lt;/Link&gt;
+&nbsp;
+            &lt;Typography variant="h6" component="div" sx={{ flexGrow: 1 }}&gt;
+              &lt;Link to="/favorite" style={{ color: "black" }}&gt;Favoritas&lt;/Link&gt;
+            &lt;/Typography&gt;
+          &lt;/Toolbar&gt;
+        &lt;/AppBar&gt;
+      &lt;/Box&gt;
+    &lt;/&gt;
   );
 }
 &nbsp;
@@ -109,7 +154,7 @@ export default NavBar;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-19T21:51:50.268Z
+                at 2023-09-21T12:24:12.442Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

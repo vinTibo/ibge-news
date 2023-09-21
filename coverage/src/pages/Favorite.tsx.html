@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">92.72% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>42/44</span>
+                <span class='fraction'>51/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">92.72% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>42/44</span>
+                <span class='fraction'>51/55</span>
             </div>
         
             
@@ -107,7 +107,18 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -115,6 +126,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -123,14 +137,22 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -158,19 +180,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions";
 import { Dispatch, StoreType } from "../types";
 import NavBar from "../components/NavBar";
+import { Button, Grid } from "@mui/material";
 &nbsp;
 function Favorite() {
   const dispatch: Dispatch = useDispatch()
-  const { newsArray, favoriteNews, firstNews } = useSelector((state: StoreType) =&gt; state.news);
-  const FavoriteArray = newsArray.filter((news) =&gt; favoriteNews.includes(news.id));
+  const { newsArray, favoriteNews } = useSelector((state: StoreType) =&gt; state.news);
+  const allFavoriteArray = newsArray.filter((news) =&gt; favoriteNews.includes(news.id));
+  const firstFavoriteArray = allFavoriteArray[0];
+  const favoriteArray = allFavoriteArray.slice(1);
   const [numberOfNews, setNumberOfNews] = useState(9);
 &nbsp;
   useEffect(() =&gt; {
     dispatch(fetchNews());
   }, []);
-  // if (newsArray.length &lt; 1) {
-  //   return &lt;h1&gt;Carregando...&lt;/h1&gt;;
-  // }
+  if (newsArray.length &lt; 1) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return &lt;h1&gt;Carregando...&lt;/h1&gt;;</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
   const handleShowNews = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setNumberOfNews(numberOfNews + 3);</span>
@@ -179,17 +204,25 @@ function Favorite() {
   return (
     &lt;&gt;
       &lt;div&gt;
-        &lt;CardLastNews lastNews={firstNews} /&gt;
+        &lt;CardLastNews lastNews={firstFavoriteArray} /&gt;
       &lt;/div&gt;
       &lt;NavBar /&gt;
-      &lt;div&gt;
-        {FavoriteArray.slice(0, numberOfNews).map((news) =&gt;
-          &lt;div key={news.id}&gt;
+      &lt;Grid container spacing={3} style={{ marginTop: "30px" }}&gt;
+        {favoriteArray.slice(0, numberOfNews).map((news) =&gt;
+          &lt;Grid item xs={12} sm={4} md={4} key={news.id}&gt;
             &lt;CardNews news={news} /&gt;
-          &lt;/div&gt;
+          &lt;/Grid&gt;
         )}
-      &lt;/div&gt;
-      {favoriteNews.length &gt; numberOfNews &amp;&amp; &lt;button onClick={handleShowNews}&gt;Carregar mais...&lt;/button&gt;}
+      &lt;/Grid&gt;
+      {favoriteNews.length &gt; numberOfNews &amp;&amp;
+        &lt;Button
+          onClick={handleShowNews}
+          variant="outlined"
+          color="error"
+          sx={{ marginTop: '20px' }}
+        &gt;
+          mais notícias
+        &lt;/Button&gt;}
     &lt;/&gt;
   );
 }
@@ -202,7 +235,7 @@ export default Favorite;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-19T21:51:50.268Z
+                at 2023-09-21T12:24:12.442Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

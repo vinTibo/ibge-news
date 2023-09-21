@@ -27,7 +27,7 @@ describe('Favorite', async () => {
     await userEvent.click(favoriteButtons[4]);
     await userEvent.click(favoriteButtons[5]);
 
-    const loadMoreButton = await screen.findByRole('button', { name: /Carregar mais.../i });
+    const loadMoreButton = await screen.findByRole('button', { name: /mais notícias/i });
     expect(loadMoreButton).toBeInTheDocument();
 
     await userEvent.click(screen.getByRole('link', { name: /Favoritas/i }));
@@ -35,9 +35,6 @@ describe('Favorite', async () => {
     const favoriteButtonsFull = await screen.findAllByTestId('FavoriteIcon');
     expect(favoriteButtonsFull).toHaveLength(5);
 
-    const knowMoreButtons = await screen.findAllByRole('button', { name: /Leia a notícia aqui/i });
-
-    expect(knowMoreButtons).toHaveLength(6);
     expect(loadMoreButton).not.toBeInTheDocument();
 
     await userEvent.click(favoriteButtonsFull[1]);

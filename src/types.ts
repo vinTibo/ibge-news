@@ -3,7 +3,6 @@ import { AnyAction } from 'redux';
 
 export type StoreType = {
   news: {
-    firstNews: NewsType;
     newsArray: NewsType[];
     favoriteNews: number[];
   }
